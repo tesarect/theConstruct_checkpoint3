@@ -1,5 +1,6 @@
 #pragma once
 #include "robot_info/robot_info_class.h"
+#include "robot_info/hydraulic_system_monitor.h"
 #include <string>
 
 class AGVRobotInfo : public RobotInfo {
@@ -14,7 +15,9 @@ public:
   std::string getMaximumPayload() const;
   void setMaximumPayload(const std::string &payload);
 
-  // protected:
+  HydraulicSystemMonitor hydraulic_system;
+
+  protected:
   //   void setMaximumPayload(const std::string &payload);
 
 private:

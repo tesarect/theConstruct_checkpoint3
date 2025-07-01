@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
 
   // Display initial robot information
   ROS_INFO("Initial robot information:");
-  agv_robot_info.displayInfo();
+//   agv_robot_info.displayInfo();
 
   // Set some initial values for IP and firmware
   agv_robot_info.updateIpAddress("169.254.5.180");
@@ -29,14 +29,14 @@ int main(int argc, char **argv) {
   agv_robot_info.displayInfo();
 
   // Test the getter methods
-  ROS_INFO("Testing getter methods:");
-  ROS_INFO("Description     : %s",
-           agv_robot_info.getRobotDescription().c_str());
-  ROS_INFO("Serial Number   : %s", agv_robot_info.getSerialNumber().c_str());
-  ROS_INFO("IP Address      : %s", agv_robot_info.getIPAddress().c_str());
-  ROS_INFO("Firmware Version: %s", agv_robot_info.getFirmwareVersion().c_str());
-  ROS_INFO("Maximum Payload : %s Kg",
-           agv_robot_info.getMaximumPayload().c_str());
+//   ROS_INFO("Testing getter methods:");
+//   ROS_INFO("Description     : %s",
+//            agv_robot_info.getRobotDescription().c_str());
+//   ROS_INFO("Serial Number   : %s", agv_robot_info.getSerialNumber().c_str());
+//   ROS_INFO("IP Address      : %s", agv_robot_info.getIPAddress().c_str());
+//   ROS_INFO("Firmware Version: %s", agv_robot_info.getFirmwareVersion().c_str());
+//   ROS_INFO("Maximum Payload : %s Kg",
+//            agv_robot_info.getMaximumPayload().c_str());
 
   // Set up publishing rate
   ros::Rate loop_rate(1); // 1 Hz

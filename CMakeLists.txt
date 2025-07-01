@@ -105,7 +105,8 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
  INCLUDE_DIRS include
 #  LIBRARIES robot_info   <<<-------
- LIBRARIES robot_info_lib
+  LIBRARIES robot_info_lib agv_robot_info_lib
+#  LIBRARIES robot_info_lib
  CATKIN_DEPENDS robotinfo_msgs roscpp
 #  DEPENDS system_lib
 )
@@ -132,6 +133,7 @@ add_library(robot_info_lib
 # Create AGV robot_info library
 add_library(agv_robot_info_lib
   src/agv_robot_info_class.cpp
+  src/hydraulic_system_monitor.cpp 
 )
 
 ## Add cmake target dependencies of the library
