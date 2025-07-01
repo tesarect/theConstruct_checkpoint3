@@ -25,7 +25,6 @@ AGVRobotInfo::~AGVRobotInfo() {
 
 std::string AGVRobotInfo::getMaximumPayload() const { return maximum_payload; }
 
-
 void AGVRobotInfo::setMaximumPayload(const std::string &payload) {
   maximum_payload = payload;
   ROS_INFO("Maximum payload updated to: %s Kg", maximum_payload.c_str());
@@ -37,7 +36,8 @@ void AGVRobotInfo::displayInfo() const {
   std::cout << "Serial Number   : " << getSerialNumber() << std::endl;
   std::cout << "IP Address      : " << getIPAddress() << std::endl;
   std::cout << "Firmware Version: " << getFirmwareVersion() << std::endl;
-  std::cout << "Maximum Payload : " << getMaximumPayload() << std::endl;
+  std::cout << "Maximum Payload : " << getMaximumPayload() << " Kg"
+            << std::endl;
   std::cout << "=========================" << std::endl;
 }
 
@@ -48,7 +48,7 @@ void AGVRobotInfo::publish_data() {
   msg.data_field_02 = "serial_number: " + getSerialNumber();
   msg.data_field_03 = "ip_address: " + getIPAddress();
   msg.data_field_04 = "firmware_version: " + getFirmwareVersion();
-  msg.data_field_05 = "maximum_payload: " + getMaximumPayload();
+  msg.data_field_05 = "maximum_payload: " + getMaximumPayload() + " Kg";
   msg.data_field_06 = "";
   msg.data_field_07 = "";
   msg.data_field_08 = "";
@@ -58,8 +58,9 @@ void AGVRobotInfo::publish_data() {
   // Publish the message
   robot_info_publisher.publish(msg);
 
-  ROS_INFO("Published robot info: %s (SN: %s) - IP: %s, FW: %s, MaxPayload: %s",
-           getRobotDescription().c_str(), getSerialNumber().c_str(),
-           getIPAddress().c_str(), getFirmwareVersion().c_str(),
-           getMaximumPayload().c_str());
+  //   ROS_INFO("Published robot info: %s (SN: %s) - IP: %s, FW: %s, MaxPayload:
+  //   %s",
+  //            getRobotDescription().c_str(), getSerialNumber().c_str(),
+  //            getIPAddress().c_str(), getFirmwareVersion().c_str(),
+  //            getMaximumPayload().c_str());
 }

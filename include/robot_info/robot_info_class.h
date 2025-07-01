@@ -6,7 +6,6 @@
 
 class RobotInfo {
 public:
-  //   RobotInfo(); NOTE: let this be commented for now
   RobotInfo(ros::NodeHandle &nh, const std::string &description,
             const std::string &serial_no);
 
@@ -19,7 +18,6 @@ public:
   std::string getIPAddress() const;
   std::string getFirmwareVersion() const;
 
-  // Public wrapper methods for testing only (can be removed later)
   void init_publisher();
   void updateIpAddress(const std::string &ip_addr) { setIpAddress(ip_addr); }
   void updateFirmwareVersion(const std::string &frmwr_ver) { setFirmwareVersion(frmwr_ver); }

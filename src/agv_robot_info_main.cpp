@@ -11,8 +11,7 @@ int main(int argc, char **argv) {
   ROS_INFO("AGV Robot Info Node Started");
 
   // Create RobotInfo object with mandatory parameters
-  AGVRobotInfo agv_robot_info(nh, "Industrial AGV Robotic Arm Model X1",
-                              "SN000789");
+  AGVRobotInfo agv_robot_info(nh, "Mir100", "567A359");
 
   // Initialize the publisher
   agv_robot_info.init_publisher();
@@ -23,8 +22,8 @@ int main(int argc, char **argv) {
 
   // Set some initial values for IP and firmware
   agv_robot_info.updateIpAddress("169.254.5.180");
-  agv_robot_info.updateFirmwareVersion("v3.5.8");
-  agv_robot_info.setMaximumPayload(std::to_string(68));
+  agv_robot_info.updateFirmwareVersion("3.5.8");
+  //   agv_robot_info.setMaximumPayload(std::to_string(68));
 
   ROS_INFO("Updated robot information:");
   agv_robot_info.displayInfo();
@@ -36,7 +35,8 @@ int main(int argc, char **argv) {
   ROS_INFO("Serial Number   : %s", agv_robot_info.getSerialNumber().c_str());
   ROS_INFO("IP Address      : %s", agv_robot_info.getIPAddress().c_str());
   ROS_INFO("Firmware Version: %s", agv_robot_info.getFirmwareVersion().c_str());
-  ROS_INFO("Maximum Payload : %s", agv_robot_info.getMaximumPayload().c_str());
+  ROS_INFO("Maximum Payload : %s Kg",
+           agv_robot_info.getMaximumPayload().c_str());
 
   // Set up publishing rate
   ros::Rate loop_rate(1); // 1 Hz
